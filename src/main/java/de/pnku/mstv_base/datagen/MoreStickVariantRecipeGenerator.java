@@ -5,10 +5,12 @@ import de.pnku.mstv_base.item.MoreStickVariantItem;
 import de.pnku.mstv_base.item.MoreStickVariantItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Item;
+
+import java.util.function.Consumer;
 
 public class MoreStickVariantRecipeGenerator extends FabricRecipeProvider {
     public MoreStickVariantRecipeGenerator(FabricDataOutput output) {
@@ -16,7 +18,7 @@ public class MoreStickVariantRecipeGenerator extends FabricRecipeProvider {
     }
 
     @Override
-    public void buildRecipes(RecipeOutput exporter) {
+    public void buildRecipes(Consumer<FinishedRecipe> exporter) {
         for (Item stickItem : MoreStickVariantItems.more_sticks) {
             String planksWood = ((MoreStickVariantItem) stickItem).mstvWoodType;
             Item stickPlanks = ((MoreStickVariantItem) stickItem).getPlanksItem(planksWood);
